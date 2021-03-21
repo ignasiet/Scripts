@@ -30,6 +30,7 @@ class Problem1():
          # j = 0
          obj_function = []
          pointsRestriction = []
+         original_damage = {}
          self.readMinMax(mandatory.keys())
          for role in mandatory:
             units_role = []
@@ -49,6 +50,7 @@ class Problem1():
                self.solver.addVariables(var_name, 0, min(num_max, int(units_troop[0])))
                print(f'0 <= {var_name} <= {min(num_max, int(units_troop[0]))}')
                obj_function.append({var_name: self.scaleValues(float(troop['damage']))})
+               original_damage[var_name] = float(troop['damage'])
                pointsRestriction.append({var_name: round(float(troop['costs']))})
                units_role.append({var_name: 1})
             self.solver.addRestrictions(units_role, operator='leq', total=num_max)
@@ -74,10 +76,13 @@ class Problem1():
          selected_troops = self.solver.solve()
          points = {k:v for elem in pointsRestriction for k,v in elem.items()}
          cost = 0
+         dmg = 0.0
          for k,v in selected_troops.items():
             if v > 0:
-               cost += points[k]
+               cost += v*points[k]
+               dmg += v*original_damage[k]
          print(f'Total cost: {cost}')
+         print(f'Total (original) damage: {dmg}')
 
 
    def readMinMax(self, roles: list):

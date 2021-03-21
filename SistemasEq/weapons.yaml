@@ -1,0 +1,133 @@
+weapons:
+    injector_pistol: 
+        st: 4
+        ap: -1
+        attacks: 1
+        damage: 1D6
+    plague_knife:
+        ap: 0
+        damage: 1
+        plague: "True"
+    hyperblight_grenade:
+        attacks: 1D6
+        st: 4
+        ap: 0
+        damage: 2
+        plague: "True"
+    krak_grenade:
+        attacks: 1
+        st: 6
+        ap: -1
+        damage: 1D3
+    blight_launcher:
+        attacks: 2
+        st: 6
+        ap: -2
+        damage: 1D3
+        plague: "True"
+    combi_bolter:
+        attacks: 2
+        st: 4
+        ap: 0
+        damage: 1
+    combi_flamer:
+        attacks: 1D6
+        st: 4
+        ap: 0
+        damage: 1
+        auto_hit: "True"
+    combi_melta:
+        attacks: 1
+        st: 8
+        ap: -4
+        damage: 1D6
+    combi_plasma:
+        attacks: 1
+        st: 7
+        ap: -3
+        damage: 1
+    plague_spewer:
+        attacks: 1D6
+        st: 5
+        ap: -1
+        damage: 1
+        auto_hit: "True"
+        plague: "True"
+    reaper_autocannon:
+        attacks: 4
+        st: 7
+        ap: -1
+        damage: 1
+    balesword:
+        ap: -3
+        damage: 1
+        plague: "True"
+    bubotic_axe:
+        st: 5
+        ap: -2
+        damage: 1
+        plague: "True"
+    flail_corruption:
+        st: 7
+        ap: -2
+        damage: 2
+        plague: "True"
+    boltgun:
+        attacks: 2
+        st: 4
+        ap: 0
+        damage: 1
+    meltagun:
+        attacks: 1
+        st: 8
+        ap: -4
+        damage: 1D6
+    plague_belcher:
+        attacks: 1D6
+        st: 4
+        ap: 0
+        damage: 1
+        auto_hit: "True"
+        plague: "True"
+    plasma_gun:
+        attacks: 1
+        st: 7
+        ap: -3
+        damage: 1
+    great_plague_cleaver:
+        st: 8
+        ap: -3
+        damage: 1D6
+        plague: "True"
+    great_plague_cleaver:
+        bs: 4
+        st: 8
+        ap: -3
+        damage: 1D6
+        plague: "True"
+    mace_contagion:
+        bs: 4
+        st: 6
+        ap: -1
+        damage: 3
+        plague: "True"
+    plague_knife:
+        ap: 0
+        damage: 1
+        plague: "True"
+    plaguesword:
+        ap: 0
+        damage: 1
+        plague: "True"
+        reroll_failed_wounds: "True"
+    power_fist:
+        bs: 4
+        st: 8
+        ap: -3
+        damage: 1D3
+    blight_grenade:
+        attacks: 1D6
+        st: 3
+        ap: 0
+        damage: 1
+        plague: "True"

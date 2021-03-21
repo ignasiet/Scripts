@@ -1,0 +1,111 @@
+Generation 0 Best 31.692 Avg 12.3145075
+Generation 1 Best 31.692 Avg 29.55725
+Generation 2 Best 31.692 Avg 31.692
+Generation 3 Best 31.692 Avg 31.692
+Generation 4 Best 31.692 Avg 31.692
+Generation 5 Best 31.692 Avg 31.692
+Generation 6 Best 31.692 Avg 31.692
+Generation 7 Best 31.692 Avg 31.692
+Generation 8 Best 31.692 Avg 31.692
+Generation 9 Best 31.692 Avg 31.692
+31.692
+Generation 0 Best 33.422 Avg 13.10826
+Generation 1 Best 33.422 Avg 29.328719999999997
+Generation 2 Best 33.422 Avg 33.422
+Generation 3 Best 33.422 Avg 33.422
+Generation 4 Best 33.422 Avg 33.422
+Generation 5 Best 33.422 Avg 33.422
+Generation 6 Best 33.422 Avg 33.422
+Generation 7 Best 33.422 Avg 33.422
+Generation 8 Best 33.422 Avg 33.422
+Generation 9 Best 33.422 Avg 33.422
+33.422
+Generation 0 Best 37.743 Avg 13.614085
+Generation 1 Best 37.743 Avg 32.0009
+Generation 2 Best 37.743 Avg 37.743
+Generation 3 Best 37.743 Avg 37.743
+Generation 4 Best 37.743 Avg 37.743
+Generation 5 Best 37.743 Avg 37.743
+Generation 6 Best 37.743 Avg 37.743
+Generation 7 Best 37.743 Avg 37.743
+Generation 8 Best 37.743 Avg 37.743
+Generation 9 Best 37.743 Avg 37.743
+37.743
+Generation 0 Best 32.8125 Avg 13.3232725
+Generation 1 Best 32.8125 Avg 31.000809999999998
+Generation 2 Best 32.8125 Avg 32.8125
+Generation 3 Best 32.8125 Avg 32.8125
+Generation 4 Best 32.8125 Avg 32.8125
+Generation 5 Best 32.8125 Avg 32.8125
+Generation 6 Best 32.8125 Avg 32.8125
+Generation 7 Best 32.8125 Avg 32.8125
+Generation 8 Best 32.8125 Avg 32.8125
+Generation 9 Best 32.8125 Avg 32.8125
+32.8125
+Generation 0 Best 31.8025 Avg 11.1788425
+Generation 1 Best 31.8025 Avg 29.500352499999998
+Generation 2 Best 31.8025 Avg 31.8025
+Generation 3 Best 31.8025 Avg 31.8025
+Generation 4 Best 31.8025 Avg 31.8025
+Generation 5 Best 31.8025 Avg 31.8025
+Generation 6 Best 31.8025 Avg 31.8025
+Generation 7 Best 31.8025 Avg 31.8025
+Generation 8 Best 31.8025 Avg 31.8025
+Generation 9 Best 31.8025 Avg 31.8025
+31.8025
+Generation 0 Best 31.331999999999997 Avg 12.9944125
+Generation 1 Best 31.331999999999997 Avg 29.026995
+Generation 2 Best 31.331999999999997 Avg 31.331999999999997
+Generation 3 Best 31.331999999999997 Avg 31.331999999999997
+Generation 4 Best 31.331999999999997 Avg 31.331999999999997
+Generation 5 Best 31.331999999999997 Avg 31.331999999999997
+Generation 6 Best 31.331999999999997 Avg 31.331999999999997
+Generation 7 Best 31.331999999999997 Avg 31.331999999999997
+Generation 8 Best 31.331999999999997 Avg 31.331999999999997
+Generation 9 Best 31.331999999999997 Avg 31.331999999999997
+31.331999999999997
+Generation 0 Best 30.746 Avg 12.339699999999999
+Generation 1 Best 30.746 Avg 28.063512499999998
+Generation 2 Best 30.746 Avg 30.746
+Generation 3 Best 30.746 Avg 30.746
+Generation 4 Best 30.746 Avg 30.746
+Generation 5 Best 30.746 Avg 30.746
+Generation 6 Best 30.746 Avg 30.746
+Generation 7 Best 30.746 Avg 30.746
+Generation 8 Best 30.746 Avg 30.746
+Generation 9 Best 30.746 Avg 30.746
+30.746
+Generation 0 Best 34.6865 Avg 14.265765
+Generation 1 Best 34.6865 Avg 32.689589999999995
+Generation 2 Best 34.6865 Avg 34.6865
+Generation 3 Best 34.6865 Avg 34.6865
+Generation 4 Best 34.6865 Avg 34.6865
+Generation 5 Best 34.6865 Avg 34.6865
+Generation 6 Best 34.6865 Avg 34.6865
+Generation 7 Best 34.6865 Avg 34.6865
+Generation 8 Best 34.6865 Avg 34.6865
+Generation 9 Best 34.6865 Avg 34.6865
+34.6865
+Generation 0 Best 33.45399999999999 Avg 12.171655
+Generation 1 Best 33.45399999999999 Avg 29.949187499999997
+Generation 2 Best 33.45399999999999 Avg 33.45399999999999
+Generation 3 Best 33.45399999999999 Avg 33.45399999999999
+Generation 4 Best 33.45399999999999 Avg 33.45399999999999
+Generation 5 Best 33.45399999999999 Avg 33.45399999999999
+Generation 6 Best 33.45399999999999 Avg 33.45399999999999
+Generation 7 Best 33.45399999999999 Avg 33.45399999999999
+Generation 8 Best 33.45399999999999 Avg 33.45399999999999
+Generation 9 Best 33.45399999999999 Avg 33.45399999999999
+33.45399999999999
+Generation 0 Best 33.3195 Avg 13.607994999999999
+Generation 1 Best 33.3195 Avg 30.7817875
+Generation 2 Best 33.3195 Avg 33.3195
+Generation 3 Best 33.3195 Avg 33.3195
+Generation 4 Best 33.3195 Avg 33.3195
+Generation 5 Best 33.3195 Avg 33.3195
+Generation 6 Best 33.3195 Avg 33.3195
+Generation 7 Best 33.3195 Avg 33.3195
+Generation 8 Best 33.3195 Avg 33.3195
+Generation 9 Best 33.3195 Avg 33.3195
+33.3195
+33.101

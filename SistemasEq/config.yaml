@@ -26,147 +26,283 @@ detachments:
       - elites: 0,6
         fastattack: 0,3
         heavysupport: 0,3
+defender:
+  t: 4
+  sv: 3
 unit: 
   - name: BiologusPutrifier
     number: 1
     damage: 0.889
     costs: 74
     role: elites
+    bs: 3
+    st: 4
+    attacks: 2
+    weapons:
+      - injector_pistol
+      - plague_knife
+      - hyperblight_grenade
+      - krak_grenade
+    abilities:
+      blight_grenade:
+        st: 4
+        damage: 2
   - name: BlightlordTerminators
     number: 5,10
     damage: 1.667
     costs: 45
     role: elites
+    bs: 3
+    st: 4
+    attacks: 2
+    weapons:
+      - blight_launcher
+      - combi_bolter
+      - combi_flamer
+      - combi_melta
+      - combi_plasma
+      - plague_spewer
+      - reaper_autocannon
+      - balesword
+      - bubotic_axe
+      - flail_corruption
   - name: ChaosCultists
     number: 10,40
-    damage: 0.56
-    costs: 40
+    damage: 0.056
+    costs: 4
     role: troops
+    bs: 4
+    st: 3
+    attacks: 2
   - name: ChaosLandRaider
     number: 1
     damage: 3.241
     costs: 239
     role: heavysupport
+    bs: 3
+    st: 8
+    attacks: 6
   - name: ChaosLord
     number: 1
     damage: 1.157
     costs: 74
     role: hq
+    bs: 2
+    st: 4
+    attacks: 4
+    abilities:
+      reroll_1_hit: "True"
   - name: ChaosLordTerminator
     number: 1
     damage: 1.667
     costs: 105
     role: hq
+    bs: 2
+    st: 4
+    attacks: 4
+    abilities:
+      reroll_1_hit: "True"
   - name: ChaosPredator
     number: 1
     damage: 3.241
     costs: 90
     role: heavysupport
+    bs: 3
+    st: 6
+    attacks: 3
   - name: ChaosRhino
     number: 1
     damage: 0.519
     costs: 70
     role: dedicatedtransport
+    bs: 3
+    st: 6
+    attacks: 3
   - name: ChaosSpawn
     number: 1,5
     damage: 1.556
     costs: 33
     role: fastattack
+    bs: 4
+    st: 5
+    attacks: 3
   - name: DaemonPrinceNurgle
     number: 1
     damage: 5.185
     costs: 146
     role: hq
+    bs: 2
+    st: 7
+    attacks: 4
+    abilities:
+      reroll_1_hit: "True"
   - name: DeathshroudTerminator
     number: 3,6
     damage: 2.778
-    costs: 150
+    costs: 50
     role: elites
+    bs: 3
+    st: 5
+    attacks: 2
+    abilities:
+      add_1_attack: "True"
   - name: Defiler
     number: 1
     damage: 4.861
     costs: 152
     role: heavysupport
+    bs: 4
+    st: 8
+    attacks: 4
   - name: FoetidBloatDrone
     number: 1
     damage: 5
     costs: 99
     role: fastattack
+    bs: 4
+    st: 6
+    attacks: 3
   - name: FoulBlightSpawn
     number: 1
     damage: 1.458
     costs: 99
     role: elites
+    bs: 3
+    st: 4
+    attacks: 3
   - name: Helbrute
     number: 1
     damage: 4.167
     costs: 72
     role: elites
+    bs: 3
+    st: 6
+    attacks: 4
   - name: LordContagion
     number: 1
     damage: 3.7
     costs: 120
     role: hq
+    bs: 2
+    st: 4
+    attacks: 4
+    abilities:
+      roll_1_extra_damage: "True"
   - name: MalignantPlaguecaster
     number: 1
     damage: 2.222
     costs: 110
     role: hq
+    bs: 3
+    st: 4
+    attacks: 3
   - name: MyphiticBlightHaulers
     number: 1,3
     damage: 1.458
     costs: 85
     role: fastattack
+    bs: 4
+    st: 6
+    attacks: 3
   - name: NoxiousBlightbringer
     number: 1
     damage: 0.926
     costs: 63
     role: elites
+    bs: 3
+    st: 4
+    attacks: 3
   - name: PlagueMarines
     number: 5,20
-    damage: 3.036
-    costs: 123
+    damage: 0.6072
+    costs: 24
     role: troops
+    bs: 3
+    st: 4
+    attacks: 2
+    weapons:
+      - blight_launcher
+      - boltgun
+      - meltagun
+      - plague_belcher
+      - plague_spewer
+      - plasma_gun
+      - bubotic_axe
+      - flail_corruption
+      - great_plague_cleaver
+      - mace_contagion
+      - plague_knife
+      - plaguesword
+      - power_fist
+      - blight_grenade
   - name: PlagueSurgeon
     number: 1
     damage: 0.833
     costs: 59
     role: elites
+    bs: 3
+    st: 4
+    attacks: 3
   - name: PlagueburstCrawler
     number: 1
     damage: 1.944
     costs: 110
     role: heavysupport
+    bs: 4
+    st: 7
+    attacks: 3
   - name: Possessed
     number: 5,20
     damage: 0.593
     costs: 22
     role: elites
+    bs: 3
+    st: 5
+    attacks: 2
   - name: Poxwalkers
     number: 10,20
-    damage: 0.37
-    costs: 60
+    damage: 0.037
+    costs: 6
     role: troops
+    bs: 5
+    st: 3
+    attacks: 2
   - name: Sorcerer
     number: 1
     damage: 2.222
     costs: 90
     role: hq
+    bs: 3
+    st: 4
+    attacks: 3
   - name: SorcererTerminator
     number: 1
     damage: 2.222
     costs: 140
     role: hq
+    bs: 3
+    st: 4
+    attacks: 3
   - name: Tallyman
     number: 1
     damage: 0.926
     costs: 60
     role: elites
+    bs: 3
+    st: 4
+    attacks: 3
+    abilities:
+      reroll_1_hit: "True"
   - name: Typhus
     number: 1
     damage: 5.56
     costs: 175
     role: hq
+    bs: 2
+    st: 4
+    attacks: 4
+    abilities:
+      roll_1_extra_damage: "True"
   - name: Mortarion
     number: 1
     damage: 14.583
