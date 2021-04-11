@@ -1,0 +1,179 @@
+general:
+  sprite_native_size: 128
+  sprite_scaling_room: 0.5
+  screen_title: "Warhammer 40K example"
+
+  map:
+    n_rooms: 1
+    screen_width: 25
+    screen_height: 12
+    terrain:
+      - ruins1:
+        - 4,6
+        - 5,6
+        - 5,5
+        - 5,4
+        - 5,3
+      - ruins2:
+        - 17,9
+        - 17,8
+        - 17,7
+      - ruins3:
+        - 18,3
+        - 19,3
+        - 20,3
+      - ruins4:
+        - 10,8
+        - 10,4
+        - 11,1
+        - 12,10
+
+render:
+  - name: hellblasters
+    type: spacemarines1
+    number: 5
+    positions: 
+      - 22,10
+      - 21,10
+      - 21,11
+      - 22,11
+      - 20,10
+  - number: 5
+    positions:
+      - 22,2
+      - 22,1
+      - 23,2
+      - 23,1
+      - 22,3
+    name: intercessors
+    type: spacemarines2
+  - number: 1
+    positions: 
+      - 22,5
+    name: lieutenant
+    type: spacemarines1
+  - name: plaguemarines1
+    type: deathguard
+    number: 5
+    positions:
+      - 1,1
+      - 1,2
+      - 2,1
+      - 2,2
+      - 3,1
+  - number: 5
+    positions:
+      - 1,10
+      - 2,11
+      - 2,10
+      - 1,11
+      - 1,9
+    name: plaguemarines2
+    type: deathguard
+  - number: 1
+    positions:
+      - 1,6
+    name: daemonprice
+    type: deathguard
+
+
+characters:
+  spacemarines1:
+    name: SpaceMarine
+    movement_speed: 4
+    sprite_scaling_player: 1
+    textures:
+      - name: "idle_texture"
+        file: "planning/assets/sprites/sm1_walk_front.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_up"
+        file: "planning/assets/sprites/sm1_walk_back.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_right"
+        file: "planning/assets/sprites/sm1_walk_left.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_left"
+        file: "planning/assets/sprites/sm1_walk_right.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+  spacemarines2:
+    name: SpaceMarine
+    movement_speed: 4
+    sprite_scaling_player: 1
+    textures:
+      - name: "idle_texture"
+        file: "planning/assets/sprites/sm2_walk_front.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_up"
+        file: "planning/assets/sprites/sm2_walk_back.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_right"
+        file: "planning/assets/sprites/sm2_walk_left.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_left"
+        file: "planning/assets/sprites/sm2_walk_right.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+  deathguard:
+    name: DeathGuard
+    movement_speed: 4
+    sprite_scaling_player: 1
+    textures:
+      - name: "idle_texture"
+        file: "planning/assets/sprites/dg_walk_front.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_up"
+        file: "planning/assets/sprites/dg_walk_back.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_right"
+        file: "planning/assets/sprites/dg_walk_left.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_left"
+        file: "planning/assets/sprites/dg_walk_right.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
