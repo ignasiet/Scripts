@@ -1,0 +1,109 @@
+units:
+  - key: DaemonPrinceNurgle
+    number: 1
+    damage: 5.185
+    costs: 146
+    role: hq
+    bs: 2
+    st: 7
+    attacks: 4
+    toughness: 6
+    save: 3
+    invulnerablesave: 5
+    wounds: 8
+    movement: 8
+    abilities:
+      reroll_1_hit: "True"
+  - key: PlagueMarines
+    number: 5,20
+    damage: 0.6072
+    costs: 24
+    role: troops
+    bs: 3
+    st: 4
+    toughness: 5
+    save: 3
+    attacks: 2
+    wounds: 1
+    movement: 5
+    weapons:
+      - blight_launcher
+      - boltgun
+  - key: Hellblasters
+    role: elites
+    movement: 6
+    bs: 3
+    st: 4
+    toughness: 4
+    save: 3
+    attacks: 2
+    wounds: 2
+    weapons:
+      - plasma_incinerator
+  - key: Intercessors
+    role: troops
+    bs: 3
+    st: 4
+    movement: 6
+    toughness: 4
+    save: 3
+    attacks: 2
+    wounds: 2
+    weapons:
+      - bolt_rifle
+  - key: Captain
+    movement: 5
+    number: 1
+    role: hq
+    bs: 2
+    st: 4
+    attacks: 5
+    toughness: 5
+    save: 3
+    wounds: 6
+    invulnerablesave: 4
+    abilities:
+      reroll_1_hit: "True"
+    weapons:
+      - boltstorm_melee
+      - boltstorm_shoot
+      - power_sword
+
+weapons:
+  boltstorm_melee:
+    bs: 3
+    st: 8
+    ap: -3
+    damage: 1D3
+  boltstorm_shoot:
+    st: 4
+    ap: 0
+    damage: 1
+  power_sword:
+    ap: -3
+    damage: 2
+  blight_launcher:
+    attacks: 2
+    st: 6
+    ap: -2
+    damage: 1D3
+    plague: "True"
+  bolter:
+    attacks: 2
+    st: 4
+    ap: 0
+    damage: 1
+  plague_knife:
+    ap: 0
+    damage: 1
+    plague: "True"
+  power_fist:
+    bs: 4
+    st: 8
+    ap: -3
+    damage: 1D3
+  plasma_incinerator:
+    attacks: 1
+    st: 7
+    ap: -4
+    damage: 1

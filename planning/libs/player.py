@@ -24,6 +24,7 @@ class PlayerCharacter(arcade.Sprite):
         self.idle = 3
         self.scale = scaling
         self.idle_texture=[]
+        self.dead_texture=[]
         self.walk_textures_up = []
         self.walk_textures_right = []
         self.walk_textures_left = []
@@ -51,6 +52,9 @@ class PlayerCharacter(arcade.Sprite):
 
     def set_idle_texture(self, texture):
         self.idle_texture=texture
+
+    def set_dead_texture(self, texture):
+        self.dead_texture=texture
 
 
     def load_sprite(self, images, target, nframes, frame, width, height, offset):
@@ -132,3 +136,24 @@ class PlayerCharacter(arcade.Sprite):
         elif self.top > self.screen_height - 1:
             self.top = self.screen_height - 1
             self.change_y = 0
+
+
+class Explosion(arcade.Sprite):
+    """ This class creates an explosion animation """
+
+    def __init__(self, texture_list):
+        super().__init__()
+
+        # Start at the first frame
+        self.current_texture = 0
+        self.textures = texture_list
+
+    def update(self):
+
+        # Update to the next frame of the animation. If we are at the end
+        # of our frames, then delete this sprite.
+        self.current_texture += 1
+        if self.current_texture < len(self.textures):
+            self.set_texture(self.current_texture)
+        else:
+            self.remove_from_sprite_lists()

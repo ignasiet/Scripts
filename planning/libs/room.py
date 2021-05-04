@@ -59,17 +59,27 @@ class Room:
         wall.left = x * self.sprite_size
         wall.bottom = y * self.sprite_size
         self.wall_list.append(wall)
-    
+
+    def addMarker(self, position: str):
+        objective = arcade.Sprite(":resources:images/items/coinGold.png", self.sprite_scaling)
+        # Position the coin
+        objective.center_x = int(position.split(',')[0]) * self.sprite_size
+        objective.center_y = int(position.split(',')[1]) * self.sprite_size
+        return objective
+
     def loadMap(self, terrains: dict):
+        walls = []
         for item in terrains:
             for k,v in item.items():
                 for coordinate in v:
                     self.addWall(int(coordinate.split(',')[0]),
                                  int(coordinate.split(',')[1]))
+                    walls.append(coordinate.replace(',', '-'))
+        return walls
 
     def removeWall(self, x, y):
         # Random blocks
         for wall in self.wall_list:
             if wall.left == x * self.sprite_size and wall.bottom == y * self.sprite_size:
                 self.wall_list.remove(wall)
-                
+

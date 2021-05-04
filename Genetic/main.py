@@ -21,8 +21,7 @@ class Problem1():
             self.codex = yaml.safe_load(stream)
         with open(filename2, 'r') as stream:
             self.list_weapons = yaml.safe_load(stream)
-        
-    
+
     def list_troops(self, problem: str) -> dict:
         # return ConfigFile(config).problem
         roles = self.codex['roles']
@@ -35,13 +34,14 @@ class Problem1():
             print("Not supported type of problem. Aborting.")
         self.create_problem("patrol")
         return list_troops, weapons
-    
+
     def create_problem(self, problem: str):
         self.type_problem = problem
         self.mandatory = self.detachments[self.type_problem]['mandatory'][0]
         optional = self.detachments[self.type_problem]['optional'][0]
         self.mandatory.update(optional)
         # troops = [self.troops[role] for role in mandatory]
+
 
 class Armylist():
     # troops are stored as dicts in different positions of the array:
@@ -90,7 +90,7 @@ class Armylist():
         if not self.checkTroopSize(len(troops[4]), must['fastattack']):
             return False
         return True
-    
+
     def checkTroopSize(self, unit: int, mandatory: str)-> bool:
         lower_limit = int(mandatory.split(',')[0])
         higher_limit = int(mandatory.split(',')[1])
@@ -99,7 +99,7 @@ class Armylist():
         if unit < lower_limit or unit > higher_limit:
             return False
         return True
-    
+
     def fitness(self) -> float:
         return self.value
 
@@ -172,7 +172,7 @@ class Armylist():
         child1.troops[selected_genes_1] = other.troops[selected_genes_1]
         child2.troops[selected_genes_2] = self.troops[selected_genes_2]
         return child1, child2
-        
+
     def mutate(self) -> None:
         roles = ['hq', 'troops', 'elites', 'fastattack', 'heavysupport']
         _i = random.randint(0, len(roles)-1)
