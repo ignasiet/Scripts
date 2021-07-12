@@ -13,7 +13,7 @@ class Plan():
         # 2 phase - shoot
         self.allowed_orders[2] = ['shot']
         # 3 phase - combat
-        self.allowed_orders[3] = ['kill']
+        self.allowed_orders[3] = ['charge', 'kill']
         self.actions = {phase: [] for phase in self.phases}
         with open('sas_plan', 'r') as f:
             for line in f:

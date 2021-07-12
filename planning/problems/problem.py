@@ -67,6 +67,7 @@ class Problem():
         for t in self.problem.troops:
             strInitial += f" (troop_at {t['name']} {t['position']})\n"
             if t['army'] == self.attacking:
+                strInitial += f" (can_move {t['name']}) \n"
                 if t['psyker'] is True:
                     strInitial += f" (psyker {t['name']})\n"
                 if t['melee'] is True:

@@ -1,6 +1,6 @@
 (define (domain Warhammer40k)
 
-(:requirements :strips :negative-preconditions :adl :equality)
+(:requirements :strips :negative-preconditions :adl)
 
 
 (:types troop objective location )

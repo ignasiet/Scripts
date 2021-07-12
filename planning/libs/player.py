@@ -23,8 +23,10 @@ class PlayerCharacter(arcade.Sprite):
         self.up_facing = 2
         self.idle = 3
         self.scale = scaling
-        self.idle_texture=[]
-        self.dead_texture=[]
+        self.attacking = False
+        self.idle_texture = []
+        self.dead_texture = []
+        self.attack_texture = []
         self.walk_textures_up = []
         self.walk_textures_right = []
         self.walk_textures_left = []
@@ -56,6 +58,9 @@ class PlayerCharacter(arcade.Sprite):
     def set_dead_texture(self, texture):
         self.dead_texture=texture
 
+    def set_attack_texture(self, texture):
+        self.attack_texture=texture
+
 
     def load_sprite(self, images, target, nframes, frame, width, height, offset):
         """
@@ -81,7 +86,6 @@ class PlayerCharacter(arcade.Sprite):
 
         # return textures
 
-
     def update_animation(self, delta_time: float = 1/60):
         # Figure out if we need to flip face left or right
         if self.change_x < 0:
@@ -97,13 +101,20 @@ class PlayerCharacter(arcade.Sprite):
 
         # Update current texture animation
         self.cur_texture += 1
+        if self.cur_texture > 5 * UPDATES_PER_FRAME and self.attacking:
+            self.cur_texture = 0
+            self.attacking = False
         if self.cur_texture > 8 * UPDATES_PER_FRAME:
             self.cur_texture = 0
+        # Attacking animation
+        if self.attacking:
+            self.texture = self.attack_texture[self.cur_texture // UPDATES_PER_FRAME]
+            return
         # Idle animation
         if self.change_x == 0 and self.change_y == 0:
             self.texture = self.idle_texture[self.cur_texture // UPDATES_PER_FRAME]
             return
-        
+
         if self.character_face_direction == self.left_facing:
             self.texture = self.walk_textures_right[self.cur_texture // UPDATES_PER_FRAME]
         elif self.character_face_direction == self.right_facing:
@@ -112,6 +123,7 @@ class PlayerCharacter(arcade.Sprite):
             self.texture = self.walk_textures_up[self.cur_texture // UPDATES_PER_FRAME]
         else:
             self.texture = self.idle_texture[self.cur_texture // UPDATES_PER_FRAME]
+
 
     def setCoordenates(self, x, y):
         self.center_x = x
@@ -136,6 +148,24 @@ class PlayerCharacter(arcade.Sprite):
         elif self.top > self.screen_height - 1:
             self.top = self.screen_height - 1
             self.change_y = 0
+
+
+class Attack(arcade.Sprite):
+    def __init__(self, texture_list):
+        super().__init__()
+
+        # Start at the first frame
+        self.current_texture = 0
+        self.textures = texture_list
+
+    def update(self):
+        # Update to the next frame of the animation. If we are at the end
+        # of our frames, then delete this sprite.
+        self.current_texture += 1
+        if self.current_texture < len(self.textures):
+            self.set_texture(self.current_texture)
+        else:
+            self.remove_from_sprite_lists()
 
 
 class Explosion(arcade.Sprite):

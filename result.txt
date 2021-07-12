@@ -1,0 +1,322 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /home/ignasi/.local/share/virtualenvs/Scripts-Y4dVq2SZ/bin/python /home/ignasi/workspace/PProjects/downward/builds/release/bin/translate/translate.py planning/problems/domain_template.pddl planning/problems/problem_1.pddl --sas-file output.sas
+Parsing...
+['domain', 'warhammer40k']
+Parsing: [0.010s CPU, 0.007s wall-clock]
+Normalizing task... [0.000s CPU, 0.002s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.003s wall-clock]
+Preparing model... [0.010s CPU, 0.014s wall-clock]
+Generated 189 rules.
+Computing model... [0.160s CPU, 0.157s wall-clock]
+11572 relevant atoms
+8984 auxiliary atoms
+20556 final queue length
+33161 total queue pushes
+Completing instantiation... [0.230s CPU, 0.233s wall-clock]
+Instantiating: [0.420s CPU, 0.417s wall-clock]
+Computing fact groups...
+Finding invariants...
+24 initial candidates
+Finding invariants: [0.010s CPU, 0.004s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+41 uncovered facts
+Choosing groups: [0.000s CPU, 0.002s wall-clock]
+Building translation key... [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.020s CPU, 0.016s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.010s CPU, 0.002s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.030s CPU, 0.026s wall-clock]
+Translating task: [0.270s CPU, 0.272s wall-clock]
+12 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+12 propositions removed
+Detecting unreachable propositions: [0.150s CPU, 0.148s wall-clock]
+Reordering and filtering variables...
+44 of 44 variables necessary.
+0 of 6 mutex groups necessary.
+8781 of 8781 operators necessary.
+70 of 70 axiom rules necessary.
+Reordering and filtering variables: [0.030s CPU, 0.027s wall-clock]
+Translator variables: 44
+Translator derived variables: 7
+Translator facts: 829
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 8781
+Translator axioms: 70
+Translator task size: 43565
+Translator peak memory: 71620 KB
+Writing output... [0.070s CPU, 0.065s wall-clock]
+Done! [0.980s CPU, 0.968s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /home/ignasi/workspace/PProjects/downward/builds/release/bin/downward --evaluator 'hlm=lmcount(lm_factory=lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=false)' --evaluator 'hff=ff(transform=adapt_costs(one))' --search 'lazy_greedy([hff,hlm],preferred=[hff,hlm],cost_type=one,reopen_closed=false)' --internal-plan-file sas_plan < output.sas
+[t=1.9028e-05s, 22060 KB] reading input...
+[t=0.0285495s, 24472 KB] done reading input!
+[t=0.0296621s, 24736 KB] Initializing landmark count heuristic...
+[t=0.0297341s, 24736 KB] Generating landmark graph...
+[t=0.0301925s, 24868 KB] Initializing Exploration...
+[t=0.0325953s, 26652 KB] Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+[t=0.0362059s, 26668 KB] approx. obedient reasonable orders
+[t=0.0362351s, 26668 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.0384041s, 26668 KB] Landmarks generation time: 0.00871536s
+[t=0.0384747s, 26668 KB] Discovered 8 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.0384968s, 26668 KB] 7 edges
+[t=0.038511s, 26668 KB] Landmark graph generation time: 0.00878796s
+[t=0.0385245s, 26668 KB] Landmark graph contains 8 landmarks, of which 0 are disjunctive and 0 are conjunctive.
+[t=0.0385371s, 26668 KB] Landmark graph contains 7 orderings.
+[t=0.0396581s, 26668 KB] Simplifying 8923 unary operators... done! [7414 unary operators]
+[t=0.0441136s, 26668 KB] time to simplify: 0.00448576s
+[t=0.0443524s, 26668 KB] Initializing additive heuristic...
+[t=0.0443823s, 26668 KB] Initializing FF heuristic...
+[t=0.0444647s, 26668 KB] Building successor generator...done!
+[t=0.0461952s, 26668 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.0462099s, 26668 KB] time for successor generation creation: 0.00167525s
+[t=0.0462699s, 26668 KB] Variables: 44
+[t=0.046286s, 26668 KB] FactPairs: 829
+[t=0.0463012s, 26668 KB] Bytes per state: 12
+[t=0.046388s, 26668 KB] Conducting lazy best first search, (real) bound = 2147483647
+[t=0.0464273s, 26668 KB] 4 initial landmarks, 1 goal landmarks
+[t=0.0465714s, 26668 KB] New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 3
+[t=0.0465909s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 31
+[t=0.0466041s, 26668 KB] g=0, 1 evaluated, 0 expanded
+[t=0.0466238s, 26668 KB] Initial heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 3
+[t=0.0466367s, 26668 KB] Initial heuristic value for ff(transform = adapt_costs(one)): 31
+[t=0.0468516s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 30
+[t=0.0468706s, 26668 KB] g=1, 3 evaluated, 2 expanded
+[t=0.046978s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 29
+[t=0.046995s, 26668 KB] g=2, 4 evaluated, 3 expanded
+[t=0.0471962s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 28
+[t=0.0472145s, 26668 KB] g=3, 6 evaluated, 5 expanded
+[t=0.0474212s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 27
+[t=0.0474415s, 26668 KB] g=4, 8 evaluated, 7 expanded
+[t=0.0476528s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 26
+[t=0.0476712s, 26668 KB] g=5, 10 evaluated, 9 expanded
+[t=0.0478682s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 25
+[t=0.047887s, 26668 KB] g=6, 12 evaluated, 11 expanded
+[t=0.0480806s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 24
+[t=0.0481014s, 26668 KB] g=7, 14 evaluated, 13 expanded
+[t=0.0482225s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 23
+[t=0.0482426s, 26668 KB] g=8, 15 evaluated, 14 expanded
+[t=0.0484473s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 22
+[t=0.0484654s, 26668 KB] g=9, 17 evaluated, 16 expanded
+[t=0.0486566s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 21
+[t=0.0486763s, 26668 KB] g=10, 19 evaluated, 18 expanded
+[t=0.0489809s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 20
+[t=0.0490029s, 26668 KB] g=11, 22 evaluated, 21 expanded
+[t=0.0492844s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 19
+[t=0.0493037s, 26668 KB] g=12, 25 evaluated, 24 expanded
+[t=0.0496742s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 18
+[t=0.049695s, 26668 KB] g=13, 29 evaluated, 28 expanded
+[t=0.0499968s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 17
+[t=0.050019s, 26668 KB] g=14, 32 evaluated, 31 expanded
+[t=0.0503018s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 16
+[t=0.0503208s, 26668 KB] g=15, 35 evaluated, 34 expanded
+[t=0.0506246s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 15
+[t=0.0506431s, 26668 KB] g=16, 38 evaluated, 37 expanded
+[t=0.0509461s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 14
+[t=0.0509698s, 26668 KB] g=17, 41 evaluated, 40 expanded
+[t=0.0512793s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 13
+[t=0.0513015s, 26668 KB] g=18, 44 evaluated, 43 expanded
+[t=0.0514825s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 12
+[t=0.0515009s, 26668 KB] g=19, 46 evaluated, 45 expanded
+[t=0.0521918s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 11
+[t=0.0522111s, 26668 KB] g=20, 54 evaluated, 53 expanded
+[t=0.0529649s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 10
+[t=0.0529881s, 26668 KB] g=21, 63 evaluated, 62 expanded
+[t=0.0535648s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 9
+[t=0.0535843s, 26668 KB] g=22, 70 evaluated, 69 expanded
+[t=0.0542635s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 8
+[t=0.0542849s, 26668 KB] g=23, 78 evaluated, 77 expanded
+[t=0.0550677s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 7
+[t=0.0550929s, 26668 KB] g=24, 87 evaluated, 86 expanded
+[t=0.0555656s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 6
+[t=0.0555867s, 26668 KB] g=25, 93 evaluated, 92 expanded
+[t=0.0563857s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 5
+[t=0.0564275s, 26668 KB] g=26, 102 evaluated, 101 expanded
+[t=0.0650927s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 4
+[t=0.0651587s, 26668 KB] g=35, 213 evaluated, 212 expanded
+[t=0.0656924s, 26668 KB] New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 2
+[t=0.0657118s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 3
+[t=0.0657261s, 26668 KB] g=37, 221 evaluated, 220 expanded
+[t=0.0657837s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 2
+[t=0.0657991s, 26668 KB] g=38, 222 evaluated, 221 expanded
+[t=0.0718101s, 26668 KB] New best heuristic value for lmcount(lm_factory = lm_rhw(reasonable_orders = true), transform = adapt_costs(one), pref = false): 1
+[t=0.0718344s, 26668 KB] g=52, 312 evaluated, 311 expanded
+[t=0.0739278s, 26668 KB] New best heuristic value for ff(transform = adapt_costs(one)): 1
+[t=0.0739981s, 26668 KB] g=67, 344 evaluated, 343 expanded
+[t=0.0762938s, 26668 KB] Solution found!
+[t=0.0763518s, 26668 KB] Actual search time: 0.0299247s
+move daemonprince 1-6 2-6 (1)
+move daemonprince 2-6 3-6 (1)
+move daemonprince 3-6 3-7 (1)
+move daemonprince 3-7 4-7 (1)
+move daemonprince 4-7 5-7 (1)
+move daemonprince 5-7 6-7 (1)
+move daemonprince 6-7 7-7 (1)
+move daemonprince 7-7 7-8 (1)
+move daemonprince 7-8 8-8 (1)
+move daemonprince 8-8 8-9 (1)
+move plaguemarines1 3-1 4-1 (1)
+move plaguemarines1 4-1 5-1 (1)
+move plaguemarines1 5-1 6-1 (1)
+move plaguemarines1 6-1 6-2 (1)
+move plaguemarines1 6-2 7-2 (1)
+move plaguemarines1 7-2 7-3 (1)
+move plaguemarines1 7-3 8-3 (1)
+move plaguemarines1 8-3 8-4 (1)
+hold plaguemarines1 o-1 8-4 (1)
+move plaguemarines2 1-9 2-9 (1)
+move plaguemarines2 2-9 3-9 (1)
+move plaguemarines2 3-9 4-9 (1)
+move plaguemarines2 4-9 5-9 (1)
+move plaguemarines2 5-9 6-9 (1)
+move plaguemarines2 6-9 7-9 (1)
+move plaguemarines2 7-9 8-9 (1)
+hold daemonprince o-3 8-9 (1)
+move plaguemarines2 8-9 9-9 (1)
+move plaguemarines2 9-9 10-9 (1)
+move plaguemarines2 10-9 11-9 (1)
+move plaguemarines2 11-9 12-9 (1)
+move plaguemarines2 12-9 13-9 (1)
+move plaguemarines2 13-9 14-9 (1)
+move plaguemarines2 14-9 15-9 (1)
+move plaguemarines2 15-9 16-9 (1)
+shot plaguemarines1 hellblasters (1)
+smite daemonprince hellblasters (1)
+hold plaguemarines2 o-4 16-9 (1)
+shot plaguemarines2 intercessors (1)
+charge plaguemarines2 16-9 16-8 (1)
+charge plaguemarines2 16-8 16-7 (1)
+charge plaguemarines2 16-7 16-6 (1)
+charge plaguemarines2 16-6 17-6 (1)
+charge plaguemarines2 17-6 18-6 (1)
+charge plaguemarines2 18-6 19-6 (1)
+charge plaguemarines2 19-6 20-6 (1)
+charge plaguemarines2 20-6 21-6 (1)
+charge plaguemarines2 21-6 22-6 (1)
+charge plaguemarines2 22-6 22-5 (1)
+charge plaguemarines2 22-5 22-4 (1)
+charge plaguemarines2 22-4 22-3 (1)
+kill plaguemarines2 intercessors 22-3 (1)
+charge plaguemarines1 8-4 9-4 (1)
+charge plaguemarines1 9-4 9-5 (1)
+charge plaguemarines1 9-5 10-5 (1)
+charge plaguemarines1 10-5 11-5 (1)
+charge plaguemarines1 11-5 12-5 (1)
+charge plaguemarines1 12-5 13-5 (1)
+charge plaguemarines1 13-5 14-5 (1)
+charge plaguemarines1 14-5 15-5 (1)
+charge plaguemarines1 15-5 16-5 (1)
+charge plaguemarines1 16-5 17-5 (1)
+charge plaguemarines1 17-5 18-5 (1)
+charge plaguemarines1 18-5 19-5 (1)
+charge plaguemarines1 19-5 20-5 (1)
+charge plaguemarines1 20-5 21-5 (1)
+charge plaguemarines1 21-5 22-5 (1)
+kill plaguemarines1 lieutenant 22-5 (1)
+charge daemonprince 8-9 9-9 (1)
+charge daemonprince 9-9 10-9 (1)
+charge daemonprince 10-9 11-9 (1)
+charge daemonprince 11-9 12-9 (1)
+charge daemonprince 12-9 13-9 (1)
+charge daemonprince 13-9 14-9 (1)
+charge daemonprince 14-9 14-8 (1)
+charge daemonprince 14-8 15-8 (1)
+charge daemonprince 15-8 15-7 (1)
+charge daemonprince 15-7 16-7 (1)
+charge daemonprince 16-7 16-6 (1)
+charge daemonprince 16-6 17-6 (1)
+charge daemonprince 17-6 18-6 (1)
+charge daemonprince 18-6 19-6 (1)
+charge daemonprince 19-6 20-6 (1)
+charge daemonprince 20-6 21-6 (1)
+charge daemonprince 21-6 22-6 (1)
+charge daemonprince 22-6 22-5 (1)
+kill daemonprince lieutenant 22-5 (1)
+[t=0.076369s, 26668 KB] Plan length: 87 step(s).
+[t=0.076369s, 26668 KB] Plan cost: 87
+[t=0.076369s, 26668 KB] Expanded 389 state(s).
+[t=0.076369s, 26668 KB] Reopened 0 state(s).
+[t=0.076369s, 26668 KB] Evaluated 390 state(s).
+[t=0.076369s, 26668 KB] Evaluations: 780
+[t=0.076369s, 26668 KB] Generated 5162 state(s).
+[t=0.076369s, 26668 KB] Dead ends: 0 state(s).
+[t=0.076369s, 26668 KB] Number of registered states: 390
+[t=0.076369s, 26668 KB] Int hash set load factor: 390/512 = 0.761719
+[t=0.076369s, 26668 KB] Int hash set resizes: 9
+[t=0.076369s, 26668 KB] Search time: 0.0299815s
+[t=0.076369s, 26668 KB] Total time: 0.076369s
+Solution found.
+Peak memory: 26668 KB
+Remove intermediate file output.sas
+search exit code: 0
+
+4
+{'name': 'o-1', 'position': '8,4'}
+{'name': 'o-2', 'position': '16,4'}
+{'name': 'o-3', 'position': '8,9'}
+{'name': 'o-4', 'position': '16,9'}
+0
+['move', 'daemonprince', '1-6', '2-6']
+['move', 'daemonprince', '2-6', '3-6']
+['move', 'daemonprince', '3-6', '3-7']
+['move', 'daemonprince', '3-7', '4-7']
+['move', 'daemonprince', '4-7', '5-7']
+['move', 'daemonprince', '5-7', '6-7']
+['move', 'daemonprince', '6-7', '7-7']
+['move', 'daemonprince', '7-7', '7-8']
+['move', 'daemonprince', '7-8', '8-8']
+['move', 'daemonprince', '8-8', '8-9']
+['move', 'plaguemarines1', '3-1', '4-1']
+['move', 'plaguemarines1', '4-1', '5-1']
+['move', 'plaguemarines1', '5-1', '6-1']
+['move', 'plaguemarines1', '6-1', '6-2']
+['move', 'plaguemarines1', '6-2', '7-2']
+['move', 'plaguemarines1', '7-2', '7-3']
+['move', 'plaguemarines1', '7-3', '8-3']
+['move', 'plaguemarines1', '8-3', '8-4']
+['hold', 'plaguemarines1', 'o-1', '8-4']
+['move', 'plaguemarines2', '1-9', '2-9']
+['move', 'plaguemarines2', '2-9', '3-9']
+['move', 'plaguemarines2', '3-9', '4-9']
+['move', 'plaguemarines2', '4-9', '5-9']
+['move', 'plaguemarines2', '5-9', '6-9']
+['move', 'plaguemarines2', '6-9', '7-9']
+['move', 'plaguemarines2', '7-9', '8-9']
+['hold', 'daemonprince', 'o-3', '8-9']
+['move', 'plaguemarines2', '8-9', '9-9']
+['move', 'plaguemarines2', '9-9', '10-9']
+['move', 'plaguemarines2', '10-9', '11-9']
+['move', 'plaguemarines2', '11-9', '12-9']
+['move', 'plaguemarines2', '12-9', '13-9']
+['move', 'plaguemarines2', '13-9', '14-9']
+['move', 'plaguemarines2', '14-9', '15-9']
+['move', 'plaguemarines2', '15-9', '16-9']
+['hold', 'plaguemarines2', 'o-4', '16-9']
+Plan finished

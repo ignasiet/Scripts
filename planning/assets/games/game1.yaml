@@ -76,7 +76,7 @@ render:
     melee: True
   - name: plaguemarines1
     psyker: False
-    type: deathguard
+    type: deathguard2
     army: deathguard
     stat: PlagueMarines
     number: 5
@@ -101,7 +101,7 @@ render:
       - 1,11
       - 1,9
     name: plaguemarines2
-    type: deathguard
+    type: deathguard2
   - number: 1
     stat: DaemonPrinceNurgle
     army: deathguard
@@ -109,7 +109,7 @@ render:
     positions:
       - 1,6
     name: daemonprince
-    type: deathguard
+    type: deathguard1
     melee: True
     psyker: True
 
@@ -155,6 +155,13 @@ characters:
         width: 40
         height: 56
         offset: 16
+      - name: "attack_texture"
+        file: "planning/assets/sprites/dg2_attack.png"
+        nframes: 6
+        frame: 64
+        width: 40
+        height: 80
+        offset: 185
   spacemarines2:
     name: SpaceMarine
     movement_speed: 4
@@ -195,34 +202,41 @@ characters:
         width: 40
         height: 56
         offset: 16
-  deathguard:
+      - name: "attack_texture"
+        file: "planning/assets/sprites/dg2_attack.png"
+        nframes: 6
+        frame: 64
+        width: 40
+        height: 56
+        offset: 185
+  deathguard1:
     name: DeathGuard
     movement_speed: 4
     sprite_scaling_player: 1
     textures:
       - name: "idle_texture"
-        file: "planning/assets/sprites/dg_walk_front.png"
+        file: "planning/assets/sprites/dg1_walk_front.png"
         nframes: 9
         frame: 64
         width: 40
         height: 56
         offset: 16
       - name: "walk_textures_up"
-        file: "planning/assets/sprites/dg_walk_back.png"
+        file: "planning/assets/sprites/dg1_walk_back.png"
         nframes: 9
         frame: 64
         width: 40
         height: 56
         offset: 16
       - name: "walk_textures_right"
-        file: "planning/assets/sprites/dg_walk_left.png"
+        file: "planning/assets/sprites/dg1_walk_left.png"
         nframes: 9
         frame: 64
         width: 40
         height: 56
         offset: 16
       - name: "walk_textures_left"
-        file: "planning/assets/sprites/dg_walk_right.png"
+        file: "planning/assets/sprites/dg1_walk_right.png"
         nframes: 9
         frame: 64
         width: 40
@@ -235,3 +249,57 @@ characters:
         width: 40
         height: 56
         offset: 16
+      - name: "attack_texture"
+        file: "planning/assets/sprites/dg2_attack.png"
+        nframes: 6
+        frame: 64
+        width: 50
+        height: 80
+        offset: 185
+  deathguard2:
+    name: DeathGuard
+    movement_speed: 4
+    sprite_scaling_player: 1
+    textures:
+      - name: "idle_texture"
+        file: "planning/assets/sprites/dg2_walk_front.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_up"
+        file: "planning/assets/sprites/dg2_walk_back.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_right"
+        file: "planning/assets/sprites/dg2_walk_left.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "walk_textures_left"
+        file: "planning/assets/sprites/dg2_walk_right.png"
+        nframes: 9
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "dead_texture"
+        file: "planning/assets/sprites/sm1_dead.png"
+        nframes: 6
+        frame: 64
+        width: 40
+        height: 56
+        offset: 16
+      - name: "attack_texture"
+        file: "planning/assets/sprites/dg2_attack.png"
+        nframes: 6
+        frame: 64
+        width: 50
+        height: 80
+        offset: 185

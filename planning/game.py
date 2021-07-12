@@ -291,8 +291,8 @@ class MyGame(arcade.Window):
         #     self.player_list[self.current_player].change_x = -self.player_list[self.current_player].movement_speed
         # elif key == arcade.key.RIGHT:
         #     self.player_list[self.current_player].change_x = self.player_list[self.current_player].movement_speed
-        # if key == arcade.key.N:
-        #     self.readPlan()
+        # if key == arcade.key.A:
+        #     self.player_list[self.current_player].attacking = True
 
     def on_key_release(self, key, key_modifiers):
         """
@@ -312,7 +312,8 @@ class MyGame(arcade.Window):
 
     def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
         """ User clicks mouse """
-        self.startplan()
+        # self.startplan()
+        pass
 
     def aiMotor(self):
         problem = Problem('Warhammer40k',
@@ -329,4 +330,3 @@ class MyGame(arcade.Window):
                                {player['name']: self.weapons[player['stat']]
                                 for player in self.configurations.render})
         self.actions.map_chars = self.map_chars
-
