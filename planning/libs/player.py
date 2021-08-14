@@ -12,7 +12,8 @@ class PlayerCharacter(arcade.Sprite):
                  height,
                  scaling,
                  movement_speed,
-                 name):
+                 name,
+                 army):
         # Set up parent class
         super().__init__()
         # Constants used to track if the player is facing left or right
@@ -30,7 +31,6 @@ class PlayerCharacter(arcade.Sprite):
         self.walk_textures_up = []
         self.walk_textures_right = []
         self.walk_textures_left = []
-        self.attack_textures = []
         self.cur_texture = 0
         # Default to face-right
         self.character_face_direction = self.right_facing
@@ -41,6 +41,7 @@ class PlayerCharacter(arcade.Sprite):
         self.points = [[-20, -28], [20, -28], [20, 28], [-20, 28]]
         self.movement_speed = movement_speed
         self.name = name
+        self.army = army
 
 
     def set_walk_textures_up(self, texture):
@@ -107,9 +108,6 @@ class PlayerCharacter(arcade.Sprite):
         if self.cur_texture > 8 * UPDATES_PER_FRAME:
             self.cur_texture = 0
         # Attacking animation
-        if self.attacking:
-            self.texture = self.attack_texture[self.cur_texture // UPDATES_PER_FRAME]
-            return
         # Idle animation
         if self.change_x == 0 and self.change_y == 0:
             self.texture = self.idle_texture[self.cur_texture // UPDATES_PER_FRAME]

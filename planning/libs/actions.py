@@ -13,6 +13,7 @@ class Actions():
                  player_list,
                  size,
                  bullets,
+                 swords,
                  stats):
         self.stored_commands = []
         self.current_action = "Reading plan"
@@ -31,6 +32,7 @@ class Actions():
         self.sprite_size = size
         self.player_list = player_list
         self.bullet_list = bullets
+        self.sword_list = swords
         self.player_sheet = stats
         # # 0 phase - move
         # self.allowed_orders[0] = ['move', 'hold']
@@ -47,10 +49,18 @@ class Actions():
         return self.score
 
     def get_phase(self):
-        return self.phases[self.current_phase]
+        try:
+            return self.phases[self.current_phase]
+        except Exception as e:
+            print(e)
+            return None
 
     def get_action(self):
-        return self.current_action
+        try:
+            return self.current_action
+        except Exception as e:
+            print(e)
+            return None
 
     def readPlan(self):
         try:
@@ -94,14 +104,14 @@ class Actions():
         # shooter = self.map_chars[order[1]]
         target = self.map_chars[order[2]]['index'][0]
         shooters = self.map_chars[order[1]]['index']
-        self.beameffect(bullet, target, shooters)
+        self.beameffect(bullet, target, shooters, listed_element=self.bullet_list)
 
     def shot(self, order):
         # Create a bullet
         bullet = arcade.Sprite(":resources:images/space_shooter/laserBlue01.png", SPRITE_SCALING_LASER)
         shooters = self.map_chars[order[1]]['index']
         target = self.map_chars[order[2]]['index'][0]
-        self.beameffect(bullet, target, shooters, addangle=-90)
+        self.beameffect(bullet, target, shooters, listed_element=self.bullet_list, addangle=-90)
 
         # # Position the bullet at the player's current location
         # for shooter in self.map_chars[order[1]]['index']:
@@ -139,19 +149,24 @@ class Actions():
         #     self.bullet_list.append(bullet)
 
     def kill(self, order):
-        dice = roll(2)
-        result = sum(dice)
-        targets = self.map_chars[order[2]]['positions']
-        attackers = self.map_chars[order[1]]['positions']
+        # dice = roll(2)
+        # result = sum(dice)
+        # targets = self.map_chars[order[2]]['positions']
+        # attackers = self.map_chars[order[1]]['positions']
+
+        sword = arcade.Sprite("planning/assets/sprites/small-chaos-sword.png", SPRITE_SCALING_LASER)
+        shooters = self.map_chars[order[1]]['index']
+        target = self.map_chars[order[2]]['index'][0]
+        self.beameffect(sword, target, shooters, listed_element=self.sword_list, addangle=-90)
 
         # get minimal distance between attacker and target
         # for target in targets:
         #     x_1 = int(target.split(',')[0])
         #     y_1 = int(target.split(',')[1])
         #     for
-        unit = self.map_chars[order[1]]
-        for troop in unit['index']:
-            self.player_list[troop].attacking = True
+        # unit = self.map_chars[order[1]]
+        # for troop in unit['index']:
+        #     self.player_list[troop].attacking = True
         #         x_2 = int(attacker.split(',')[0])
         #         y_2 = int(attacker.split(',')[1])
         #         print(f"Runned {(abs(x_1-x_2) + (abs(y_1-y_2)))} - {result}")
@@ -159,8 +174,10 @@ class Actions():
         #             print("Successfull charge!")
         #             return
         # print("Unsuccessfull charge!")
+        # Loop through each player
 
-    def beameffect(self, bullet, target, shooters, addangle=None):
+
+    def beameffect(self, bullet, target, shooters, listed_element, addangle=None):
         # Position the bullet at the player's current location
         for shooter in shooters:
             start_x = self.player_list[shooter].center_x + self.sprite_size
@@ -199,7 +216,7 @@ class Actions():
             bullet.change_y = math.sin(angle) * BULLET_SPEED
 
             # Add the bullet to the appropriate lists
-            self.bullet_list.append(bullet)
+            listed_element.append(bullet)
 
     def movementeffect(self, order):
         unit = self.map_chars[order[1]]

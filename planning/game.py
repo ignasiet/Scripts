@@ -11,7 +11,7 @@ import arcade
 import random
 import yaml
 
-from planning.libs.player import PlayerCharacter, Explosion
+from planning.libs.player import Attack, PlayerCharacter, Explosion
 from planning.libs.room import Room
 from planning.utils.config import ConfigFile
 
@@ -27,7 +27,40 @@ import time
 # SCREEN_HEIGHT = SPRITE_SIZE * 10
 
 
-class MyGame(arcade.Window):
+class InstructionView(arcade.View):
+    def __init__(self, width: int, height: int, stats: dict, config: dict) -> None:
+        super().__init__()
+        self.width = width
+        self.height = height
+        self.stats = stats
+        self.config = config
+
+
+    def on_show(self):
+        """ This is run once when we switch to this view """
+        arcade.set_background_color(arcade.csscolor.DARK_SLATE_BLUE)
+
+        # Reset the viewport, necessary if we have a scrolling game and we need
+        # to reset the viewport back to the start so we can see what we draw.
+        arcade.set_viewport(0, self.width - 1, 0, self.height - 1)
+
+    def on_draw(self):
+        """ Draw this view """
+        arcade.start_render()
+        arcade.draw_text("Instructions Screen", self.width / 2, self.height / 2,
+                         arcade.color.WHITE, font_size=50, anchor_x="center")
+        arcade.draw_text("Click n to perform an action", self.width / 2, self.height / 2-75,
+                         arcade.color.WHITE, font_size=20, anchor_x="center")
+
+    def on_mouse_press(self, _x, _y, _button, _modifiers):
+        """ If the user presses the mouse button, start the game. """
+        game_view = MyGame(self.config, self.stats)
+        game_view.setup()
+        self.window.show_view(game_view)
+
+
+
+class MyGame(arcade.View):
     """
     Main application class.
     """
@@ -55,13 +88,16 @@ class MyGame(arcade.Window):
         self.screen_width = self.sprite_size * self.configurations.general.map.screen_width
         self.screen_height = self.sprite_size * self.configurations.general.map.screen_height
         self.explosion()
+        self.attack()
 
-        super().__init__(self.screen_width,
-                         self.screen_height,
-                         self.configurations.general.screen_title)
+        # super().__init__(self.screen_width,
+        #                  self.screen_height,
+        #                  self.configurations.general.screen_title)
+        super().__init__()
 
         # Don't show the mouse cursor
-        self.set_mouse_visible(False)
+        # self.set_mouse_visible(False)
+        self.window.set_mouse_visible(False)
         arcade.set_background_color(arcade.color.AMAZON)
 
     def setup(self):
@@ -70,7 +106,9 @@ class MyGame(arcade.Window):
         self.player_list = arcade.SpriteList()
         self.objectives = arcade.SpriteList()
         self.bullet_list = arcade.SpriteList()
+        self.sword_list = arcade.SpriteList()
         self.explosions_list = arcade.SpriteList()
+        self.attack_list = arcade.SpriteList()
         self.current_player = 0
         self.map_chars = {}
 
@@ -82,7 +120,8 @@ class MyGame(arcade.Window):
             for position in player['positions']:
                 player_infos = ConfigFile(self.configurations.characters[player['type']])
                 self.load_player(player_infos,
-                                 position)
+                                 position,
+                                 player['army'])
                 list_positions.append(position)
                 list_index.append(i)
                 i += 1
@@ -135,6 +174,25 @@ class MyGame(arcade.Window):
                                                               columns,
                                                               count)
 
+    def attack(self):
+        # Pre-load the animation frames. We don't do this in the __init__
+        # of the explosion sprite because it
+        # takes too long and would cause the game to pause.
+        self.attack_texture_list = []
+
+        columns = 5
+        count = 25
+        sprite_width = 200
+        sprite_height = 200
+        file_name = "planning/assets/sprites/sword_attack.png"
+
+        # Load the explosions from a sprite sheet
+        self.attack_texture_list = arcade.load_spritesheet(file_name,
+                                                           sprite_width,
+                                                           sprite_height,
+                                                           columns,
+                                                           count)
+
     def load_rooms(self):
         # Create the rooms
         # Our list of rooms
@@ -162,12 +220,13 @@ class MyGame(arcade.Window):
         self.current_room = 0
 
 
-    def load_player(self, player_infos, position):
+    def load_player(self, player_infos, position, army):
         player = PlayerCharacter(self.screen_width,
                                  self.screen_height,
                                  player_infos.sprite_scaling_player,
                                  player_infos.movement_speed,
-                                 player_infos.name)
+                                 player_infos.name,
+                                 army)
         # Load textures of the sprite
         if 'textures' not in player_infos.data:
             raise Exception('No textures for the player found')
@@ -215,6 +274,7 @@ class MyGame(arcade.Window):
         self.player_list.draw()
         self.objectives.draw()
         self.explosions_list.draw()
+        self.attack_list.draw()
         self.bullet_list.draw()
 
         # Put the text on the screen.
@@ -243,6 +303,8 @@ class MyGame(arcade.Window):
         # Call update on bullet sprites
         self.bullet_list.update()
         self.explosions_list.update()
+        self.sword_list.update()
+        self.attack_list.update()
 
         # Loop through each bullet
         for bullet in self.bullet_list:
@@ -269,8 +331,31 @@ class MyGame(arcade.Window):
                 bullet.remove_from_sprite_lists()
 
             # If the bullet flies off-screen, remove it.
-            if bullet.bottom > self.width or bullet.top < 0 or bullet.right < 0 or bullet.left > self.width:
+            if bullet.bottom > self.screen_width or bullet.top < 0 or bullet.right < 0 or bullet.left > self.screen_width:
                 bullet.remove_from_sprite_lists()
+
+        # Loop through each player
+        for sword in self.sword_list:
+            # Check this player to see if it hit a player
+            hit_list = arcade.check_for_collision_with_list(sword,
+                                                            self.player_list)
+            # If it did, get rid of the bullet
+            if len(hit_list) > 0:
+                print("Hit list: " + str(len(hit_list)))
+                # Make an attack
+                attack = Attack(self.attack_texture_list)
+
+                # Move it to the location of the coin
+                attack.center_x = hit_list[0].center_x
+                attack.center_y = hit_list[0].center_y
+                # Call update() because it sets which image we start on
+                attack.update()
+
+                # Add to a list of sprites that are attacks
+                self.attack_list.append(attack)
+                # Get rid of the bullet
+                sword.remove_from_sprite_lists()
+
 
     def updateRoom(self, room):
         self.physics_engine = arcade.PhysicsEngineSimple(self.player,
@@ -327,6 +412,7 @@ class MyGame(arcade.Window):
         self.actions = Actions(self.player_list,
                                self.sprite_size,
                                self.bullet_list,
+                               self.sword_list,
                                {player['name']: self.weapons[player['stat']]
                                 for player in self.configurations.render})
         self.actions.map_chars = self.map_chars
